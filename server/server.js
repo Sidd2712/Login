@@ -15,6 +15,10 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Backend is running 🚀');
+});
+
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
