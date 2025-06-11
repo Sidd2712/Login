@@ -19,6 +19,7 @@ function Login() {
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, formData);
       localStorage.setItem('token', response.data.token);
+      console.log("Response:", response.data);
       const role = response.data.user.role;
       navigate(role === 'principal' ? '/principal-dashboard' : '/teacher-dashboard');
     } catch (err) {
